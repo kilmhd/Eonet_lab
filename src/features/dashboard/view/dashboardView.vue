@@ -49,7 +49,6 @@
                     <h2 class="panel-title">Earth Events</h2>
                     <p class="panel-sub">NASA EONET · last 365 days</p>
                 </div>
-                <button class="panel-close-btn" @click="panelOpen = false" aria-label="Close panel">✕</button>
             </div>
 
             <!-- Quick stats row -->
@@ -298,7 +297,7 @@ export default {
 /* ══ layout ══ */
 .app {
     position: relative;
-    width: 100vw; height: 100vh;
+    width: 100svw; height: 100svh;
     background: #000; overflow: hidden;
     font-family: var(--sans);
 }
@@ -386,7 +385,7 @@ export default {
 .burger:hover { background: rgba(20,24,40,0.9); }
 .burger span {
     display: block; width: 17px; height: 1.5px;
-    background: var(--tx); border-radius: 2px;
+    background: rgba(76, 218, 123, 0.9); border-radius: 2px;
     transition: transform .2s, opacity .2s;
 }
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -403,7 +402,7 @@ export default {
     border: 0.5px solid var(--bdr);
     border-radius: 14px;
     color: var(--tx);
-    max-height: calc(100vh - 110px);
+    max-height: calc(100svh - 110px);
     overflow-y: auto;
     z-index: 100;
     scrollbar-width: thin;
@@ -427,15 +426,6 @@ export default {
     letter-spacing: .04em;
 }
 
-.panel-close-btn {
-    background: rgba(255,255,255,0.05);
-    border: 0.5px solid var(--bdr2); border-radius: 5px;
-    color: var(--muted); width: 24px; height: 24px;
-    display: none; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 11px; padding: 0;
-    transition: background .15s, color .15s;
-}
-.panel-close-btn:hover { background: rgba(255,255,255,.1); color: var(--tx); }
 
 /* quick stats */
 .panel-stats {
@@ -520,11 +510,10 @@ export default {
 /* ══ responsive ══ */
 @media (max-width: 767px) {
     .burger { display: flex; }
-    .panel-close-btn { display: flex; }
 
     .ui-panel {
         top: 0; left: 0; width: 100%; max-width: 300px;
-        height: 100vh; max-height: 100vh;
+        height: 100svh; max-height: 100svh;
         border-radius: 0 14px 14px 0;
         transform: translateX(-100%);
         transition: transform .3s cubic-bezier(.22,1,.36,1);
